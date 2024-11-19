@@ -18,11 +18,11 @@ module.exports = function (client) {
     for (const file of prefixFolder) {
         const filePath = path.join('../prefix', file);
         const prefixCommand = require(filePath);
-		console.success(`[ PREFIX ] Loaded: ${prefixFolder.length} file(s)`)
+		console.success(`PREFIX INFO: Loaded: ${prefixFolder.length} file(s)`)
 
         if ('name' in prefixCommand && 'execute' in prefixCommand) {
             const cmdName = prefixCommand.name;
-            console.success(`[ PREFIX ] Loaded: ${cmdName}`);
+            console.success(`PREFIX INFO Loaded: ${cmdName}`);
         }
     }
 
@@ -40,10 +40,10 @@ module.exports = function (client) {
 			await command.execute(message, args);
 		} catch (error) {
 			console.error(error);
-			await message.reply('There was an error executing that command!');
+			await message.reply('Hey! please send this error to the dev who made this bot!', error);
 		}
 		if(command.execute) {
-			console.log(`[ PREFIX ] ${prefix}${commandName} has been executed by ${message.author.tag}`)
+			console.log(`PREFIX INFO: ${prefix}${commandName} has been executed by ${message.author.tag}`)
 		}
 	});
 }
