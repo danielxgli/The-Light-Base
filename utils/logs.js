@@ -59,4 +59,4 @@ function blue(message) {
     return write(message, `${color.lblue}${color.reset} `)
 }
 
-module.exports = { getTimestamp, write, log, warn, error, success, debug, color, login, blue};
+module.exports = { write, log, warn, error, success, debug, color, login, blue};
