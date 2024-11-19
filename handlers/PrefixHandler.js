@@ -22,7 +22,7 @@ module.exports = function (client) {
 
         if ('name' in prefixCommand && 'execute' in prefixCommand) {
             const cmdName = prefixCommand.name;
-            console.success(`PREFIX INFO Loaded: ${cmdName}`);
+            console.success(`PREFIX INFO: Loaded: ${cmdName}`);
         }
     }
 
