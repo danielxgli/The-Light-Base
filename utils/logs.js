@@ -11,16 +11,7 @@ const color = {
     lblue: '\x1b[38;5;111m'
 }
 
-function getTimestamp() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
+
 
 function write(message = '', prefix = '', colors = true) {
     const properties = inspect(message, { depth: 3, colors: Boolean(colors && typeof message !== 'string') });
@@ -41,31 +32,31 @@ function write(message = '', prefix = '', colors = true) {
 }
 
 function log(message) {
-    return write(message, `${color.yellow}[${getTimestamp()}]${color.reset} `);
+    return write(message, `${color.yellow}${color.reset} `);
 }
 
 function warn(message) {
-    return write(message, `${color.orange}[${getTimestamp()}]${color.reset} `);
+    return write(message, `${color.orange}${color.reset} `);
 }
 
 function error(message) {
-    return write(message, `${color.red}[${getTimestamp()}] `, false);
+    return write(message, `${color.red} `, false);
 }
 
 function success(message) {
-    return write(message, `${color.green}[${getTimestamp()}]${color.reset} `);
+    return write(message, `${color.green}${color.reset} `);
 }
 
 function debug(message) {
-    return write(message, `${color.blue}[${getTimestamp()}]${color.reset} `);
+    return write(message, `${color.blue}${color.reset} `);
 }
 
 function login(message) {
-    return write(message, `${color.purple}[${getTimestamp()}]${color.reset} `);
+    return write(message, `${color.purple}${color.reset} `);
 }
 
 function blue(message) {
-    return write(message, `${color.lblue}[${getTimestamp()}]${color.reset} `)
+    return write(message, `${color.lblue}${color.reset} `)
 }
 
 module.exports = { getTimestamp, write, log, warn, error, success, debug, color, login, blue};
